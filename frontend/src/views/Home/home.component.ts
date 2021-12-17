@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { LayoutStyle } from 'src/components/layout/layout.component';
+import '@passageidentity/passage-auth';
 
 @Component({
   selector: 'home',
@@ -7,4 +9,6 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
   title = 'home';
+
+  public layoutStyle = LayoutStyle.Home;
 }

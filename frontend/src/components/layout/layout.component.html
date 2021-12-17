@@ -1,3 +1,9 @@
-<div>
-  Index
+<div [ngClass]="['fingerprints', layoutStyle]">
+  <banner [authorized]="authorized"></banner>
+  <div class="mainContainerSizer">
+    <div class="mainContainer">
+      <ng-content></ng-content>
+    </div>
+  </div>
+  <div class="mainFooter"></div>
 </div>
