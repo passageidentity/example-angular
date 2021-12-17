@@ -4,7 +4,7 @@ const cors = require("cors");
 
 const app = express();
 const PORT = 7001;
-const CLIENT_URL = "http://localhost:8080";
+const CLIENT_URL = "http://localhost:4200";
 
 require("dotenv").config();
 

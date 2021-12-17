@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { LayoutStyle } from 'src/components/layout/layout.component';
+import { environment } from 'src/environments/environment';
 import '@passageidentity/passage-auth';
 
 @Component({
@@ -11,4 +12,5 @@ export class HomeComponent {
   title = 'home';
 
   public layoutStyle = LayoutStyle.Home;
+  public appId = environment.passageAppId;
 }
