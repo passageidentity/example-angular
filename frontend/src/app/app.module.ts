@@ -8,6 +8,7 @@ import { BannerComponent } from 'src/components/banner/banner.component';
 import { AuthorizedComponent } from 'src/components/authorized/authorized.component';
 import { UnauthorizedComponent } from 'src/components/unauthorized/unauthorized.component';
 import { HomeComponent } from 'src/views/Home/home.component';
+import { DashboardComponent } from 'src/views/Dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { HomeComponent } from 'src/views/Home/home.component';
     AuthorizedComponent,
     UnauthorizedComponent,
     HomeComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

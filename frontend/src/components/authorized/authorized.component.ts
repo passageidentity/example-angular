@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { LayoutStyle } from '../layout/layout.component';
 
 @Component({
   selector: 'authorized',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AuthorizedComponent {
   title = 'authorized';
+
+  @Input('username') username: String = '';
+
+  public layoutStyle = LayoutStyle.Authorized;
 }

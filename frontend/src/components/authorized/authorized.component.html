@@ -1,3 +1,14 @@
-<div>
-  Index
-</div>
+<layout [authorized]="true" [layoutStyle]="layoutStyle">
+  <div class="mainContainer">
+    <div>
+      <div class="title">Welcome!</div>
+      <div class="message"><b>{{username}}</b> successfully signed in with Passage.</div>
+    </div>
+    <div class="spacer"></div>
+    <div class="imgContainer">
+      <img src="../../assets/launch.png" alt="People Celebrating"/>
+    </div>
+    <div class="spacer"></div>
+    <div class="subMessage">Implement risk-free authentication with two lines of code.</div>
+  </div>
+</layout>

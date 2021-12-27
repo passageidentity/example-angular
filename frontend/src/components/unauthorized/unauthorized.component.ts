@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LayoutStyle } from '../layout/layout.component';
 
 @Component({
   selector: 'unauthorized',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class UnauthorizedComponent {
   title = 'unauthorized';
+
+  public layoutStyle = LayoutStyle.Unauthorized;
 }

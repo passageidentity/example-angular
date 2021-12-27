@@ -16,6 +16,7 @@ export class DashboardComponent implements OnInit {
   public username = '';
 
   ngOnInit(){
+    this.isLoading = true;
     const authToken = localStorage.getItem("psg_auth_token");
     axios
       .post(`${API_URL}/auth`, null, {
