@@ -60,7 +60,7 @@ import '@passageidentity/passage-auth'
 ```
 Importing this script will register the Passage custom element for use in your Angular components. For more information about custom elements refer to the [online documentation](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements).
 
-It's then just a matter of embedding the passage-auth element into your component template that will handle login. This is done in this example in [frontend/src/views/Home/home.component.html](https://github.com/passageidentity/example-angular/blob/main/frontend/src/views/Home/home.component.html:
+It's then just a matter of embedding the passage-auth element into your component template that will handle login. This is done in this example in [frontend/src/views/Home/home.component.html](https://github.com/passageidentity/example-angular/blob/main/frontend/src/views/Home/home.component.html):
 ```html
 <div class="authContainer">
   <passage-auth [appId]="appId"></passage-auth>
