@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  passageAppId: 'Bur9w5NtJPRojFpJ4HLHhZkT'
+  passageAppId: ''
 };
 
 /*
