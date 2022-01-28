@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import axios from 'axios';
-
-const API_URL = "http://localhost:7001";
+import { PassageUser } from '@passageidentity/passage-auth/passage-user'
 
 @Component({
   selector: 'dashboard',
@@ -17,30 +15,14 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(){
     this.isLoading = true;
-    const authToken = localStorage.getItem("psg_auth_token");
-    axios
-      .post(`${API_URL}/auth`, null, {
-        headers: {
-          Authorization: `Bearer ${authToken}`,
-        },
-      })
-      .then((response) => {
-        const { authStatus, identifier } = response.data;
-        if (authStatus === "success") {
-          this.isLoading = false;
-          this.isAuthorized = true;
-          this.username = identifier;
-        } else {
-          this.isLoading = false;
-          this.isAuthorized = false;
-          this.username = '';
-        }
-      })
-      .catch((err) => {
-        console.log(err);
+    new PassageUser().userInfo().then(userInfo =>{
+      if(userInfo === undefined){
         this.isLoading = false;
-        this.isAuthorized = false;
-        this.username = '';
-      });
+        return;
+      }
+      this.isAuthorized = true;
+      this.username = userInfo.email ? userInfo.email : userInfo.phone;
+      this.isLoading = false;
+    })
   }
 }
