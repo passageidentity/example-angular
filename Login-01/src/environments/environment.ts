@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  passageAppId: '1Cw3lqNAg6B6GliqIKF6ER3n'
+  passageAppId: ''
 };
 
 /*
