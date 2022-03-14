@@ -1,27 +1,61 @@
-# AngularBlog
+# Passage Example Angular App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
+This example application uses the Passage Element in a Angular application to authenticate users using biometrics or magic links. The server uses the 
+[Passage Node.js SDK](https://www.npmjs.com/package/@passageidentity/passage-node) to verify users on authenticated endpoints. To run this example application, follow the instructions below to install and start the 
+frontend and backend server.
 
-## Development server
+## Configure Your Environment Variables
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1. Open environments/environment.ts to configure the Passage App ID.
+2. Replace the example variables with your own Passage App ID. You can get yours by creating an app in the [Passage Console](https://console.passage.id).
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Build and Run
 
-## Build
+Install dependencies
+```bash
+npm install
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Start the client in development mode
+```bash
+npm run start
+```
 
-## Running unit tests
+The app will run on http://localhost:4200, which you can navigate to in your browser.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Authenticate Requests With Passage
 
-## Running end-to-end tests
+Navigate to [http://localhost:4200](http://localhost:4200) and see what it's like authenticating users using Passage with Angular!
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+# Using Passage with Angular
 
-## Further help
+## Importing and Using the Passage-Auth Custom Element
+The easiest way to add authentication to a web frontend is with a Passage Auth custom element. First you'll need to install the [passage-auth](https://www.npmjs.com/package/@passageidentity/passage-auth) package from npm:
+```
+npm i --save @passageidentity/passage-auth
+```
+Then import the package in the module where you intend to use the custom element. In an Angular application this can be done at the application level, as in this example in [`app.module.ts`](https://github.com/passageidentity/example-angular/blob/main/frontend/src/app/app.module.ts) or in a sub-module that contains the login/registration page.
+```
+import '@passageidentity/passage-auth'
+```
+Importing this script will register the Passage custom element for use in your Angular components. For more information about custom elements refer to the [online documentation](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements).
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+It's then just a matter of embedding the passage-auth element into your component template that will handle login. This is done in this example in [frontend/src/views/Home/home.component.html](https://github.com/passageidentity/example-angular/blob/main/frontend/src/views/Home/home.component.html):
+```html
+<div class="authContainer">
+  <passage-auth [appId]="appId"></passage-auth>
+</div>
+```
+
+## Configuring Angular to Recognize Custom Elements
+For Angular to recongize a non-Angular component tag as a custom element the Angular module that uses the custom element must be configured with the custom element schema. This example only contains a single app module so the custom element schema is added to [app.module.ts](https://github.com/passageidentity/example-angular/blob/main/frontend/src/app/app.module.ts):
+```javascript
+@NgModule({
+  ...
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  ...
+})
+export class AppModule { }
+```
+
