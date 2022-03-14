@@ -1,8 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PassageUser } from '@passageidentity/passage-auth/passage-user';
 
-const API_URL = "http://localhost:7001";
-
 @Component({
   selector: 'dashboard',
   templateUrl: './dashboard.component.html',
