@@ -31,13 +31,13 @@ Navigate to [http://localhost:4200](http://localhost:4200) and see what it's lik
 # Using Passage with Angular
 
 ## Importing and Using the Passage-Auth Custom Element
-The easiest way to add authentication to a web frontend is with a Passage Auth custom element. First you'll need to install the [passage-auth](https://www.npmjs.com/package/@passageidentity/passage-auth) package from npm:
+The easiest way to add authentication to a web frontend is with a Passage Auth custom element. First you'll need to install the [passage-elements](https://www.npmjs.com/package/@passageidentity/passage-elements) package from npm:
 ```
-npm i --save @passageidentity/passage-auth
+npm i --save @passageidentity/passage-elements
 ```
-Then import the package in the module where you intend to use the custom element. In an Angular application this can be done at the application level, as in this example in [`app.module.ts`](https://github.com/passageidentity/example-angular/blob/main/frontend/src/app/app.module.ts) or in a sub-module that contains the login/registration page.
+Then import the package in the module where you intend to use the custom element. In an Angular application this can be done at the application level, as in this example in app.module.ts or in a sub-module that contains the login/registration page.
 ```
-import '@passageidentity/passage-auth'
+import '@passageidentity/passage-elements/passage-auth'
 ```
 Importing this script will register the Passage custom element for use in your Angular components. For more information about custom elements refer to the [online documentation](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements).
 

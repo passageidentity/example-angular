@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PassageUser } from '@passageidentity/passage-auth/passage-user';
+import { PassageUser } from '@passageidentity/passage-elements/passage-user';
 
 @Component({
   selector: 'dashboard',

@@ -1,6 +1,7 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import '@passageidentity/passage-auth';
+import '@passageidentity/passage-elements/passage-auth';
+import '@passageidentity/passage-elements/passage-profile';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
