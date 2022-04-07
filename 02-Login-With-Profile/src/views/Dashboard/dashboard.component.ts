@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PassageUser } from '@passageidentity/passage-elements/passage-user';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'dashboard',
@@ -9,9 +10,9 @@ import { PassageUser } from '@passageidentity/passage-elements/passage-user';
 export class DashboardComponent implements OnInit {
   title = 'dashboard';
 
-  public username: String = '';
   public isLoading: Boolean = false;
   public isAuthorized: Boolean = false;
+  public appId: string = environment.passageAppId;
 
   ngOnInit(){
     this.isLoading = true;
@@ -19,12 +20,10 @@ export class DashboardComponent implements OnInit {
         if(userInfo === undefined){
             this.isLoading = false;
             this.isAuthorized = false;
-            this.username = "";
             return;
         }
         this.isLoading = false;
         this.isAuthorized =true;
-        this.username = userInfo.email ? userInfo.email : userInfo.phone;
     })
   }
 }

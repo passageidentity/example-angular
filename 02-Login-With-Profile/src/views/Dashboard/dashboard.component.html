@@ -1,0 +1,21 @@
+<div class="dashboard" *ngIf="!isLoading && isAuthorized">
+    <div class="title">
+        Welcome!
+    </div>
+    <div class="message">
+        You successfully signed in with Passage.
+        <br/><br/>
+        <passage-profile [appId]="appId"></passage-profile>
+    </div>
+
+</div>
+<div class="dashboard" *ngIf="!isLoading && !isAuthorized">
+    <div class="title">
+       Unauthorized 
+    </div>
+    <div class="message">
+        You have not logged in and cannot view the dashboard.
+        <br/><br/>
+        <a href="/" className={styles.link}>Login to continue.</a> 
+    </div>
+</div>
