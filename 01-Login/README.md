@@ -1,8 +1,6 @@
 # Passage Example Angular App
 
-This example application uses the Passage Element in a Angular application to authenticate users using biometrics or magic links. The server uses the 
-[Passage Node.js SDK](https://www.npmjs.com/package/@passageidentity/passage-node) to verify users on authenticated endpoints. To run this example application, follow the instructions below to install and start the 
-frontend and backend server.
+This example application uses the Passage Element in a Angular application to authenticate users using biometrics or magic links.
 
 ## Configure Your Environment Variables
 
