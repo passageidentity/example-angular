@@ -36,7 +36,7 @@ npm i --save @passageidentity/passage-elements
 Then import the elements in the module where you intend to use the custom elements. In an Angular application this can be done at the application level, as in this example in app.module.ts or in a sub-module that contains the login/registration page.
 ```
 import '@passageidentity/passage-elements/passage-auth'
-imoprt '@passageidentity/passage-elements/passage-profile'
+import '@passageidentity/passage-elements/passage-profile'
 ```
 Importing this script will register the passage-auth and passage-profile custom elements for use in your Angular components. For more information about custom elements refer to the [online documentation](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements).
 
