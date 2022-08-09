@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PassageUser } from '@passageidentity/passage-elements/passage-user';
+import { AuthService } from 'src/app/auth.service';
 
 @Component({
   selector: 'dashboard',
@@ -9,22 +10,24 @@ import { PassageUser } from '@passageidentity/passage-elements/passage-user';
 export class DashboardComponent implements OnInit {
   title = 'dashboard';
 
-  public username: String = '';
+  public username: String | undefined = '';
   public isLoading: Boolean = false;
   public isAuthorized: Boolean = false;
 
+  constructor(private authService: AuthService){}
+
   ngOnInit(){
     this.isLoading = true;
-    new PassageUser().userInfo().then(userInfo=> {
-        if(userInfo === undefined){
-            this.isLoading = false;
-            this.isAuthorized = false;
-            this.username = "";
-            return;
-        }
+    this.authService.isLoggedIn().then((result) => {
+      if (result) {
+        this.isLoading = this.authService.isLoading;
+        this.isAuthorized = this.authService.isAuthenticated;
+        this.username = this.authService.username;
+      } else {
         this.isLoading = false;
-        this.isAuthorized =true;
-        this.username = userInfo.email ? userInfo.email : userInfo.phone;
+        this.isAuthorized = false;
+        this.username = '';
+      }
     })
-  }
+}
 }
