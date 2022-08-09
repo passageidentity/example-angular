@@ -12,7 +12,7 @@ export class DashboardComponent implements OnInit {
 
   public username: String | undefined = '';
   public isLoading: Boolean = false;
-  public isAuthorized: Boolean = false;
+  public isAuthenticated: Boolean = false;
 
   constructor(private authService: AuthService){}
 
@@ -21,11 +21,11 @@ export class DashboardComponent implements OnInit {
     this.authService.isLoggedIn().then((result) => {
       if (result) {
         this.isLoading = this.authService.isLoading;
-        this.isAuthorized = this.authService.isAuthenticated;
+        this.isAuthenticated = this.authService.isAuthenticated;
         this.username = this.authService.username;
       } else {
         this.isLoading = false;
-        this.isAuthorized = false;
+        this.isAuthenticated = false;
         this.username = '';
       }
     })

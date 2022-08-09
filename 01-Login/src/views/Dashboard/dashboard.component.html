@@ -1,4 +1,4 @@
-<div class="dashboard" *ngIf="!isLoading && isAuthorized">
+<div class="dashboard" *ngIf="!isLoading && isAuthenticated">
     <div class="title">
         Welcome!
     </div>
@@ -10,7 +10,7 @@
     </div>
 
 </div>
-<div class="dashboard" *ngIf="!isLoading && !isAuthorized">
+<div class="dashboard" *ngIf="!isLoading && !isAuthenticated">
     <div class="title">
        Unauthorized 
     </div>
