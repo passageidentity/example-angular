@@ -1,13 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'home',
+  selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
-  title = 'home';
+export class HomeComponent implements OnInit {
 
   public appId: string = environment.passageAppId;
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
 }
