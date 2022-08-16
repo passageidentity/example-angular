@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PassageUser } from '@passageidentity/passage-elements/passage-user';
+import { AuthService } from 'src/app/auth.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -10,20 +10,25 @@ import { environment } from 'src/environments/environment';
 export class DashboardComponent implements OnInit {
   title = 'dashboard';
 
+  public username: String | undefined = '';
   public isLoading: Boolean = false;
-  public isAuthorized: Boolean = false;
+  public isAuthenticated: Boolean = false;
   public appId: string = environment.passageAppId;
+
+  constructor(private authService: AuthService){}
 
   ngOnInit(){
     this.isLoading = true;
-    new PassageUser().userInfo().then(userInfo=> {
-        if(userInfo === undefined){
-            this.isLoading = false;
-            this.isAuthorized = false;
-            return;
-        }
+    this.authService.isLoggedIn().then((result) => {
+      if (result) {
+        this.isLoading = this.authService.isLoading;
+        this.isAuthenticated = this.authService.isAuthenticated;
+        this.username = this.authService.username;
+      } else {
         this.isLoading = false;
-        this.isAuthorized =true;
+        this.isAuthenticated = false;
+        this.username = '';
+      }
     })
-  }
+}
 }
