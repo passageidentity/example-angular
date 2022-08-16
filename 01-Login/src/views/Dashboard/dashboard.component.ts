@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PassageUser } from '@passageidentity/passage-elements/passage-user';
 import { AuthService } from 'src/app/auth.service';
 
 @Component({
